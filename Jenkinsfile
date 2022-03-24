@@ -46,7 +46,7 @@ pipeline
         {
             steps
             {
-                bat "dotnet test C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+                bat "dotnet test ${myVariable}"
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
         }
@@ -54,7 +54,7 @@ pipeline
         {
             steps
             {
-                bat "dotnet publish C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+                bat "dotnet publish ${myVariable}"
             }
         }
         stage('Package') 
@@ -64,7 +64,7 @@ pipeline
                 echo "Deploying to stage environment for more tests!";
                 bat "del *.zip"
         
-                bat "tar.exe -a -c -f sampleapp.zip C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/bin/Debug/netcoreapp1.1/publish "
+                bat "tar.exe -a -c -f sampleapp.zip ${myVariable} "
       
                 }
         }
