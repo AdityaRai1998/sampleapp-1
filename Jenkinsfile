@@ -20,7 +20,7 @@ pipeline
                     {
                         bat "\"${scannerHome}\\SonarScanner.MSBuild.exe\" begin /k:\"DotNetApp\""
                     
-                        bat "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/demo1/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+                        bat "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/PipelineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
                         bat "\"${scannerHome}\\SonarScanner.MSBuild.exe\" end"
                     }
                 }
@@ -37,7 +37,7 @@ pipeline
         {
             steps
             {
-                bat "dotnet build C:/ProgramData/jenkins/.jenkins/workspace/demo1/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj --configuration Release"
+                bat "dotnet build C:/ProgramData/jenkins/.jenkins/workspace/PipelineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj --configuration Release"
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
         }
@@ -45,7 +45,7 @@ pipeline
         {
             steps
             {
-                bat "dotnet test C:/ProgramData/jenkins/.jenkins/workspace/demo1/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+                bat "dotnet test C:/ProgramData/jenkins/.jenkins/workspace/PipelineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
         }
@@ -53,7 +53,7 @@ pipeline
         {
             steps
             {
-                bat "dotnet publish C:/ProgramData/jenkins/.jenkins/workspace/demo1/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+                bat "dotnet publish C:/ProgramData/jenkins/.jenkins/workspace/PipelineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
             }
         }
         stage('Package') 
@@ -63,7 +63,7 @@ pipeline
                 echo "Deploying to stage environment for more tests!";
                 bat "del *.zip"
         
-                bat "tar.exe -a -c -f sampleapp.zip C:/ProgramData/jenkins/.jenkins/workspace/demo1/aspnet-core-dotnet-core/bin/Debug/netcoreapp1.1/publish "
+                bat "tar.exe -a -c -f sampleapp.zip C:/ProgramData/jenkins/.jenkins/workspace/PipelineSCM/aspnet-core-dotnet-core/bin/Debug/netcoreapp1.1/publish "
       
                 }
         }
