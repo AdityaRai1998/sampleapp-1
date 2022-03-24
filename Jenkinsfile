@@ -1,3 +1,4 @@
+def myVariable = "C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
 pipeline 
 {
     agent any
@@ -8,7 +9,7 @@ pipeline
 			   git branch: 'main', url: 'https://github.com/AdityaRai1998/sampleapp-1.git'
 			}
 		}*/
-		stage('SonarQube Analysis') 
+		/*stage('SonarQube Analysis') 
         {
             steps
             {
@@ -25,7 +26,7 @@ pipeline
                     }
                 }
             }
-        }
+        }*/
         /*stage("Quality Gate") 
         {
             steps
@@ -37,7 +38,7 @@ pipeline
         {
             steps
             {
-                bat "dotnet build C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj --configuration Release"
+                bat "dotnet build ${myVariable} --configuration Release"
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
         }
