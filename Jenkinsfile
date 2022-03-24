@@ -14,7 +14,7 @@ pipeline
 			   git branch: 'main', url: 'https://github.com/AdityaRai1998/sampleapp-1.git'
 			}
 		}*/
-		stage('SonarQube Analysis') 
+		/*stage('SonarQube Analysis') 
         {
             steps
             {
@@ -31,7 +31,7 @@ pipeline
                     }
                 }
             }
-        }
+        }*/
         /*stage("Quality Gate") 
         {
             steps
@@ -69,7 +69,8 @@ pipeline
                 echo "Deploying to stage environment for more tests!";
                 bat "del *.zip"
         
-                bat "tar.exe -a -c -f sampleapp.zip ${myVariable} "
+               // bat "tar.exe -a -c -f sampleapp.zip ${myVariable} "
+			bat "tar.exe -a -c -f sampleapp_${BUILD_NUMBER}.zip ${myVariable} "	
       
                 }
         }
@@ -138,13 +139,13 @@ pipeline
 		              '''
             } 
 	}
-	   stage('Deploy') 
+	   /*stage('Deploy') 
 	{
 	   steps
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}
+	}*/
         
         
 	}
