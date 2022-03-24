@@ -1,6 +1,11 @@
 def myVariable = "C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
 pipeline 
 {
+	environment
+	{
+		appName = "Aditya-Jenkin-App"
+		resourceGroup = "Training-rg"
+	}	
     agent any
 	stages 
 	{
@@ -137,7 +142,7 @@ pipeline
 	{
 	   steps
 		{
-		    azureWebAppPublish appName: 'Aditya-Jenkin-App', azureCredentialsId: 'Azure', resourceGroup: 'Training-rg'
+			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
 	}
         
