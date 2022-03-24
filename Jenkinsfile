@@ -9,7 +9,7 @@ pipeline
 			   git branch: 'main', url: 'https://github.com/AdityaRai1998/sampleapp-1.git'
 			}
 		}*/
-		/*stage('SonarQube Analysis') 
+		stage('SonarQube Analysis') 
         {
             steps
             {
@@ -21,12 +21,12 @@ pipeline
                     {
                         bat "\"${scannerHome}\\SonarScanner.MSBuild.exe\" begin /k:\"DotNetApp\""
                     
-                        bat "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+                        bat "dotnet build ${myVariable}"
                         bat "\"${scannerHome}\\SonarScanner.MSBuild.exe\" end"
                     }
                 }
             }
-        }*/
+        }
         /*stage("Quality Gate") 
         {
             steps
