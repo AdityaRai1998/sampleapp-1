@@ -14,7 +14,7 @@ pipeline
 			   git branch: 'main', url: 'https://github.com/AdityaRai1998/sampleapp-1.git'
 			}
 		}*/
-		stage('SonarQube Analysis') 
+		/*stage('SonarQube Analysis') 
         {
             steps
             {
@@ -31,7 +31,7 @@ pipeline
                     }
                 }
             }
-        }
+        }*/
         /*stage("Quality Gate") 
         {
             steps
