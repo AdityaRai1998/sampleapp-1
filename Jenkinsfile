@@ -32,7 +32,7 @@ pipeline
                 }
             }
         }
-        stage("Quality gate") 
+        /*stage("Quality gate") 
         {
             steps {
                waitForQualityGate abortPipeline: false, credentialsId: 'aditya'
@@ -144,7 +144,7 @@ pipeline
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}
+	}*/
         
         
 	}
