@@ -37,7 +37,7 @@ pipeline
             steps {
                waitForQualityGate abortPipeline: false, credentialsId: 'aditya'
             }
-        }
+        }*/
         stage('build')
         {
             steps
@@ -144,7 +144,7 @@ pipeline
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}*/
+	}
         
         
 	}
