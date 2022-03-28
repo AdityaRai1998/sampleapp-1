@@ -38,7 +38,7 @@ pipeline
                waitForQualityGate abortPipeline: false, credentialsId: 'aditya'
             }
         }
-        /*stage('build')
+        stage('build')
         {
             steps
             {
@@ -79,7 +79,7 @@ pipeline
             {
                rtServer (
                  id: "Artifactory",
-                 url: 'http://localhost:8082/artifactory',
+                 //url: 'http://localhost:8082/artifactory',
                  //username: 'admin',
                   //password: 'Aditya@1998',
                   bypassProxy: true,
@@ -144,7 +144,7 @@ pipeline
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}*/
+	}
         
         
 	}
