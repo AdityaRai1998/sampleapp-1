@@ -38,15 +38,15 @@ pipeline
                waitForQualityGate abortPipeline: false, credentialsId: 'aditya'
             }
         }
-        /*stage('build')
+        stage('build')
         {
             steps
             {
                 bat "dotnet build ${myVariable} --configuration Release"
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
-        }*/
-        /*stage('Test')
+        }
+        stage('Test')
         {
             steps
             {
@@ -144,7 +144,7 @@ pipeline
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}*/
+	}
         
         
 	}
