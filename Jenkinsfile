@@ -1,5 +1,4 @@
 def myVariable = "C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
-def Var2 = "aditya-webapp-jenkin-libs-release"
 pipeline 
 {
 	environment
@@ -96,7 +95,7 @@ pipeline
                    "files": [
                       {
                       "pattern": "*.zip",
-                      "target": '${Var2}'
+                      "target": "aditya-webapp-jenkin-libs-release"
                       }
                             ]
                            }''',
