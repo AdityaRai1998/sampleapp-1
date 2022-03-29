@@ -1,6 +1,5 @@
 def myVariable = "C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
-def Var2 = "F:/jfrog/sampleapp.zip"
-def Var3 = "F:/zipfile/"
+def Var2 = "aditya-webapp-jenkin-libs-release"
 pipeline 
 {
 	environment
@@ -97,7 +96,7 @@ pipeline
                    "files": [
                       {
                       "pattern": "*.zip",
-                      "target": "aditya-webapp-jenkin-libs-release"
+                      "target": "${Var2}"
                       }
                             ]
                            }''',
@@ -136,8 +135,7 @@ pipeline
 	   steps
 	   {
 		   powershell '''
-		                  //Expand-Archive 'F:/jfrog/sampleapp.zip' -DestinationPath 'F:/zipfile/'
-				  Expand-Archive '${Var2}' -DestinationPath '${Var3}'
+		                  Expand-Archive 'F:/jfrog/sampleapp.zip' -DestinationPath 'F:/zipfile/'
 		              '''
             } 
 	}
