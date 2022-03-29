@@ -129,15 +129,7 @@ pipeline
       )
             }
         } // Expand the downloded file to destination folder
-         stage('Expand the Archive') 
-	{
-	   steps
-	   {
-		   powershell '''
-		                  Expand-Archive 'F:/jfrog/sampleapp.zip' -DestinationPath 'F:/zipfile/'
-		              '''
-            } 
-	}
+        
 		// Deploy our Web App on Azure Cloud
 	   stage('Deploy to azure') //Depoly the published files into the azure webapp
 	{
