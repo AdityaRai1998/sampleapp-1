@@ -1,4 +1,6 @@
 def myVariable = "C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
+def Var2 = "F:/jfrog/sampleapp.zip"
+def Var3 = "F:/zipfile/"
 pipeline 
 {
 	environment
@@ -14,7 +16,7 @@ pipeline
 			   git branch: 'main', url: 'https://github.com/AdityaRai1998/sampleapp-1.git'
 			}
 		}*/
-		stage('SonarQube Analysis') 
+		/*stage('SonarQube Analysis') 
         {
             steps
             {
@@ -37,7 +39,7 @@ pipeline
             steps {
                waitForQualityGate abortPipeline: true, credentialsId: 'aditya'
             }
-        }
+        }*/
         stage('build')
         {
             steps
@@ -46,7 +48,7 @@ pipeline
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
         }
-        /*stage('Test')
+        stage('Test')
         {
             steps
             {
@@ -134,7 +136,8 @@ pipeline
 	   steps
 	   {
 		   powershell '''
-		                  Expand-Archive 'F:/jfrog/sampleapp.zip' -DestinationPath 'F:/zipfile/'
+		                  //Expand-Archive 'F:/jfrog/sampleapp.zip' -DestinationPath 'F:/zipfile/'
+				  Expand-Archive '${Var2}' -DestinationPath '${Var3}'
 		              '''
             } 
 	}
@@ -144,7 +147,7 @@ pipeline
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}*/
+	}
         
         
 	}
