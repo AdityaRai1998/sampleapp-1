@@ -35,7 +35,7 @@ pipeline
         stage("Quality gate") 
         {
             steps {
-               waitForQualityGate abortPipeline: false, credentialsId: 'aditya'
+               waitForQualityGate abortPipeline: true, credentialsId: 'aditya'
             }
         }
         stage('build')
