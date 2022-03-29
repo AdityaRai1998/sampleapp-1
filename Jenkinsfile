@@ -96,7 +96,7 @@ pipeline
                    "files": [
                       {
                       "pattern": "*.zip",
-                      "target": "${Var2}"
+                      "target": "aditya-webapp-jenkin-libs-release"
                       }
                             ]
                            }''',
