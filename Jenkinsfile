@@ -96,7 +96,7 @@ pipeline
                    "files": [
                       {
                       "pattern": "*.zip",
-                      "target": "aditya-webapp-jenkin-libs-release"
+                      "target": '${Var2}'
                       }
                             ]
                            }''',
@@ -139,13 +139,13 @@ pipeline
 		              '''
             } 
 	}
-	   stage('Deploy') 
+	   /*stage('Deploy') 
 	{
 	   steps
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}
+	}*/
         
         
 	}
