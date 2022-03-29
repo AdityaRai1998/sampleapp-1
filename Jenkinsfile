@@ -1,6 +1,8 @@
+// Defining Variable
 def myVariable = "C:/ProgramData/jenkins/.jenkins/workspace/PiplineSCM/aspnet-core-dotnet-core/aspnet-core-dotnet-core.csproj"
 pipeline 
 {
+	//Define Environment Variable regarding azure webApp
 	environment
 	{
 		appName = "Aditya-Jenkin-App"
@@ -14,7 +16,8 @@ pipeline
 			   git branch: 'main', url: 'https://github.com/AdityaRai1998/sampleapp-1.git'
 			}
 		}*/
-		/*stage('SonarQube Analysis') 
+		//Static code analysis with Sonarqube
+		stage('SonarQube Analysis') 
         {
             steps
             {
@@ -37,8 +40,8 @@ pipeline
             steps {
                waitForQualityGate abortPipeline: true, credentialsId: 'aditya'
             }
-        }*/
-        stage('build')
+        }
+        stage('build') // Building the Application
         {
             steps
             {
@@ -54,25 +57,27 @@ pipeline
                 //C:\ProgramData\Jenkins\.jenkins\workspace\demo1\aspnet-core-dotnet-core
             }
         }
-        stage('publish')
+        stage('publish') // Publishing the webapp
         {
             steps
             {
                 bat "dotnet publish ${myVariable}"
             }
         }
+		//Packaging with  Latest build number
         stage('Package') 
         {
             steps 
                 {
                 echo "Deploying to stage environment for more tests!";
-                bat "del *.zip"
+                bat "del *.zip" // Deleting our previsioly created file
         
                // bat "tar.exe -a -c -f sampleapp.zip ${myVariable} "
 			bat "tar.exe -a -c -f sampleapp_${BUILD_NUMBER}.zip ${myVariable} "	
       
                 }
         }
+		//This Stage is for connecting Jfrog with jenkins
         stage ('Connected to jfrog')
         {
             steps
@@ -86,7 +91,7 @@ pipeline
                    timeout: 300
                         )
             }
-        }
+        }       // Uploading file to jfrog repository in zip pattern
                 stage('Upload file to jfrog'){
             steps{
                 rtUpload (
@@ -110,7 +115,7 @@ pipeline
                     serverId: "Artifactory"
                 )
             }
-        }
+        } //Download artifact from jfrog repository to our local system
         stage ('download the artifacts from artifactory')
         {
             steps
@@ -128,7 +133,7 @@ pipeline
                               }"""
       )
             }
-        }
+        } // Expand the downloded file to destination folder
          stage('Expand the Archive') 
 	{
 	   steps
@@ -138,13 +143,14 @@ pipeline
 		              '''
             } 
 	}
-	   /*stage('Deploy') 
+		// Deploy our Web App on Azure Cloud
+	   stage('Deploy') 
 	{
 	   steps
 		{
 			azureWebAppPublish appName: "${env.appName}", azureCredentialsId: 'Azure', resourceGroup: "${env.resourceGroup}"
 	         }
-	}*/
+	}
         
         
 	}
