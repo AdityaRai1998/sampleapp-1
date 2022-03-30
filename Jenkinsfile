@@ -32,7 +32,7 @@ pipeline
         stage("Quality gate")                                                        // A quality gate is a milestone in an IT project that requires that predefined criteria be met before the project can proceed to the next phase. 
         {
             steps {
-               waitForQualityGate abortPipeline: false, credentialsId: 'aditya'     
+               waitForQualityGate abortPipeline: true, credentialsId: 'aditya'     
             }
         }
         stage('build')                                                                 // Building the Application
